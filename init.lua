@@ -435,6 +435,8 @@ require('lazy').setup({
         end,
       })
 
+      vim.filetype.add({ extension = { templ = 'templ' } })
+
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -464,6 +466,20 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+
+        templ = {
+          filetypes = { 'templ' },
+        },
+        html = {
+          filetypes = { 'html', 'templ' },
+        },
+        htmx = {
+          filetypes = { 'html', 'templ' },
+        },
+        tailwindcss = {
+          filetypes = { 'templ', 'astro', 'javascript', 'typescript', 'react' },
+          userLanguages = { templ = 'html' },
+        },
 
         lua_ls = {
           -- cmd = {...},
